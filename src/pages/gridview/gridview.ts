@@ -19,45 +19,25 @@ export class GridviewPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private formBuilder: FormBuilder
-    //private formGroup: FormGroup
   ) {
 
     this.gridForm = this.formBuilder.group({
       name: [''],
+      type: [''],
       gridcheck: false,
       rows: [''],
-      cols: ['']
+      cols: [''],
+      capacity: ['']
     });
   }
 
   ionViewDidLoad() {
-    this.grid = new Array;
-    for (let i = 0; i < this.r; i++) {
-
-      this.row = new Array;
-      for (let j = 0; j < this.c; j++) {
-        this.position = String.fromCharCode(j + 65) + (i + 1).toString();
-        this.row.push(this.position);
-      }
-      this.grid.push(this.row);
-
-    }
-    console.log("----------", this.grid);
+    console.log('ionViewDidLoad LogisticsmanagerPage');
   }
 
-  onKeyRows(event: any) {
-    console.log("----------", this.gridForm.value.rows);
+  showBox(event: any) {
     this.r = this.gridForm.value.rows;
-    this.showBox();
-  }
-
-  onKeyColumns(event: any) {
-    console.log("----------", this.gridForm.value.cols);
     this.c = this.gridForm.value.cols;
-    this.showBox();
-  }
-
-  showBox() {
     this.grid = new Array;
     for (let i = 0; i < this.r; i++) {
 
@@ -69,7 +49,7 @@ export class GridviewPage {
       this.grid.push(this.row);
 
     }
-    console.log("----------", this.grid);
+    console.log("----grid------", this.grid);
   }
 
 }
